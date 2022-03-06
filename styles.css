@@ -1,0 +1,271 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    --box-partition-color: rgb(3, 26, 80);
+    --main-font: 'Source Sans Pro', sans-serif;
+    --main-game-font-color: white;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@100&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+html, body {
+    height: 100vh;
+    width: auto;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    font-family: var(--main-font);
+    font-size: max(1.2rem, 1vh);
+}
+
+body {
+    background: -moz-radial-gradient(circle, rgba(39,103,162,0.95) 0%, rgba(0,0,0,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(39,103,162,0.95) 0%, rgba(0,0,0,1) 100%);
+    background: radial-gradient(circle, rgba(39,103,162,0.95) 0%, rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2767a2",endColorstr="#000000",GradientType=1);
+}
+
+/* div {
+    border: 1px solid black;
+} */
+
+div .player-selection > div {
+    border-bottom: 3px rgb(255, 255, 255) solid;
+    font-weight: bold;
+}
+
+div .player-selection > .player {
+    font-size: max(1.5rem, 4vh);
+}
+
+div .player-selection > :nth-child(odd) {
+    border-right: 3px rgb(255, 255, 255) solid;
+    font-weight: bold;
+}
+
+div > * {
+    text-align: center;
+    display: grid;
+    align-content: center;
+}
+
+.page-wrapper {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: 1fr;
+    align-content: center;
+    justify-content: center;
+    row-gap: max(1rem, 3.5vh);
+    color: var(--main-game-font-color);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+.player-selection, .marker-x, .marker-o {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    opacity: 0.8;
+    padding: 0.2rem;
+}
+
+.game-board {
+    display: grid;
+    height: max(50vh, 400px);
+    width: max(50vh, 400px);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-self: center;
+}
+
+.box2, .box5, .box8 {
+    border-right: 0.5rem solid var(--box-partition-color);
+    border-left: 0.5rem solid var(--box-partition-color);
+}
+
+.box4, .box5, .box6 {
+    border-top: 0.5rem solid var(--box-partition-color);
+    border-bottom: 0.5rem solid var(--box-partition-color);
+}
+
+.box {
+    font-family: 'Comfortaa', cursive, 'Source Sans Pro', sans-serif;
+    font-size: max(4rem, 10vh);
+}
+
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgb(39,103,162);
+    background: -moz-radial-gradient(circle, rgba(39,103,162,0.95) 0%, rgba(0,0,0,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(39,103,162,0.95) 0%, rgba(0,0,0,1) 100%);
+    background: radial-gradient(circle, rgba(39,103,162,0.95) 0%, rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2767a2",endColorstr="#000000",GradientType=1);
+    z-index: 2;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    gap: 3rem;
+    color: var(--main-game-font-color);
+}
+
+.game-play {
+    display: grid;
+    gap: 2rem;
+    z-index: 4;
+}
+
+.game-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 1rem;
+    display: none;
+    z-index: 3;
+}
+
+.game-options h1, td {
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 1);
+}
+
+.game-options h1 {
+    text-transform: uppercase;
+}
+
+.first-turn > span {
+    display: flex;
+    gap: 0.5rem;
+    margin-right: 1rem;
+}
+
+.play-btn-wrapper {
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: center;
+}
+
+.blinking{
+    animation:blinkingText 1.2s infinite;
+}
+@keyframes blinkingText{
+    0%{     color: rgb(255, 14, 14); }
+    49%{    color: rgb(255, 14, 14); }
+    60%{    color: var(--main-game-font-color); }
+    99%{    color: var(--main-game-font-color);  }
+    100%{   color: rgb(255, 14, 14);    }
+}
+
+.notification {
+    display: grid;
+    opacity: 0;
+}
+
+.notification .winner {
+    letter-spacing: 0.1rem;
+    font-size: max(0.8rem, 2.7vh);
+    word-wrap: normal;
+}
+
+.click-disabled {
+    pointer-events: none;
+}
+
+.mouse-marker {
+    position: absolute;
+    z-index: 1;
+    font-family: 'Comfortaa', cursive, 'Source Sans Pro', sans-serif;
+    font-size: 3rem;
+    opacity: 30%;
+    color: var(--main-game-font-color);
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 1);
+}
+
+.first-turn {
+    display: flex;
+    justify-content: center;
+    grid-column: 1/-1;
+    gap:1rem
+}
+
+table {
+    min-width: 650px;
+}
+
+table * td {
+    text-align: left;
+    padding-left: 2rem;
+    padding-top: 1rem;
+}
+
+table input {
+    width: 92%;
+    height: 2rem;
+    font-family: var(--main-font);
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 0.3rem;
+    -webkit-box-shadow: 3px 3px 2px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 2px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 2px 0px rgba(0,0,0,0.75);
+}
+
+input:hover, :focus{
+    border-color: rgb(223, 186, 67);
+}
+
+.target-score {
+    font-size: max(1.6rem, 3.5vh);
+}
+
+.first-turn label:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.game-title {
+    font-size: max(2rem, 5vh);
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 1);
+}
+
+button {
+    margin-top: max(0.5rem, 2vh);
+    padding: max(0.1rem, 1vh) max(1.5rem, 3vh);
+    font-family: var(--main-font);
+    font-size: max(1.2rem, 2.5vh);
+    font-weight: 700;
+    border-radius: 0.5rem;
+    border: 0;
+    -webkit-box-shadow: 4px 6px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 6px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 4px 6px 5px 0px rgba(0,0,0,0.75);
+    text-transform: uppercase;
+}
+
+button:hover{
+    background-color: rgb(223, 186, 67);
+    cursor: pointer;
+}
+
+.notification button {
+    justify-self: center;
+}
+
+.active-player {
+    background-color: rgb(223, 186, 67);
+}
+
+.footer {
+    color: rgb(223, 186, 67);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    font-size: 0.7rem;
+    text-align: center;
+    margin-top: 1rem;
+    opacity: 0.7;
+}
+
+input[type="radio"] {
+    margin-top: -4px;
+    vertical-align: middle;
+  }

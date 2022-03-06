@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Odin Project - Tic Tac Toe</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="player-selection">
+            <div class="player player1">Player 1</div>
+            <div class="player player2">Player 2</div>
+            <div class="marker-x">
+                <div class="x">X :</div>
+                <div class="X-score">-</div>
+            </div>
+            <div class="marker-o">
+                <div class="o">O :</div>
+                <div class="O-score">-</div>
+            </div>
+        </div>
+        <div class="winning-score">
+            <h4>Race to: <span class="target-score">0</span></h4>
+        </div>
+        <div class="game-board">
+            <div data-boxnum="1" class="box box1"></div>
+            <div data-boxnum="2" class="box box2"></div>
+            <div data-boxnum="3" class="box box3"></div>
+            <div data-boxnum="4" class="box box4"></div>
+            <div data-boxnum="5" class="box box5"></div>
+            <div data-boxnum="6" class="box box6"></div>
+            <div data-boxnum="7" class="box box7"></div>
+            <div data-boxnum="8" class="box box8"></div>
+            <div data-boxnum="9" class="box box9"></div>
+        </div>
+        <div class="notification">
+            <p class="winner">&nbsp;</p>
+            <button id="nextRound">Next Round</button>
+        </div>
+    </div>
+    <div class="overlay">
+        <div class="game-play">
+            <div class="game-title">
+                <h1> Tic Tac Toe</h1>
+            </div>
+            <div class="play-btn-wrapper">
+                <button id="btn-play">Play</button>
+            </div>
+        </div>
+        <div class="game-options">
+            <h1>Game Options</h1>
+            <table>
+                <tr>
+                    <td><p class="name">Player 1's Name:</p></td>
+                    <td><input type="text" id="player1" value="Player X" required></td>
+                </tr>
+                <tr>
+                    <td><p class="name">Player 2's Name:</p></td>
+                    <td><input type="text" id="player2"  value="Player O" required></td>
+                </tr>
+                <tr>
+                    <td><p>First Turn (Each Round):</p></td>
+                    <td>
+                        <div class="first-turn">
+                            <span>
+                                <input type="radio" name="turn" id="X" value="X" checked>
+                                <label for="X">X</label>
+                            </span>
+                            <span>
+                                <input type="radio" name="turn" id="O" value="O">
+                                <label for="O">O</label>
+                            </span>
+                            <span>
+                                <input type="radio" name="turn" id="alternate" value="alternate">
+                                <label for="alternate">Alternate</label>
+                            </span>
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Race to [Score]:</td>
+                    <td>
+                        <input class='option-scores' list="scores" name="scores" value="5" min="1">
+                        <datalist id="scores">
+                            <option value="5">
+                            <option value="10">
+                            <option value="20">
+                        </datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="play-btn-wrapper">
+                            <button id="btn-start">Start</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="mouse-marker">
+        &nbsp;
+    </div>
+    <div class="footer">
+        Programmed/designed from scratch by Julius Palon. <br>The-Odin-Project Exercise
+    </div>
+</body>
+</html>
